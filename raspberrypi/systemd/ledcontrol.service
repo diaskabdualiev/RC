@@ -1,0 +1,14 @@
+[Unit]
+Description=LED Control Flask Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/led_control
+ExecStart=/usr/bin/python3 /home/pi/led_control/app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
